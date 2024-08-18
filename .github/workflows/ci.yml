@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Ruby ${{ matrix.ruby_version }} Rails ${{ matrix.rails_version }}
 
     strategy:
       fail-fast: false
