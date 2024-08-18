@@ -1,8 +1,47 @@
-/.bundle/
-/.yardoc
-/_yardoc/
-/coverage/
-/doc/
+*.gem
+*.rbc
+.ruby-version
+/.config
+/coverage/assets
+/coverage/index.html
+/coverage/*.json
+/coverage/*.json.lock
+/InstalledFiles
 /pkg/
 /spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
 /tmp/
+/test/log/*
+/test/sandbox/tmp/*
+/test/sandbox/log/*
+/test/tmp/*
+/.yardoc
+
+## Specific to RubyMotion:
+.dat*
+.repl_history
+build/
+*.bridgesupport
+build-iPhoneOS/
+build-iPhoneSimulator/
+
+## Documentation cache and generated files:
+/doc/
+/rdoc/
+
+## Environment normalization:
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# Sample bug replication repo
+/replicate-bug
+
+# Appraisal
+/gemfiles/*.gemfile.lock
+/gemfiles/.bundle/

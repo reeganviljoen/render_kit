@@ -1,0 +1,83 @@
+PATH
+  remote: .
+  specs:
+    render_kit (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    appraisal (2.5.0)
+      bundler
+      rake
+      thor (>= 0.14.0)
+    ast (2.4.2)
+    json (2.7.2)
+    language_server-protocol (3.17.0.3)
+    lint_roller (1.1.0)
+    minitest (5.25.0)
+    nio4r (2.7.3)
+    parallel (1.26.2)
+    parser (3.3.4.2)
+      ast (~> 2.4.1)
+      racc
+    puma (6.4.2)
+      nio4r (~> 2.0)
+    racc (1.8.1)
+    rainbow (3.1.1)
+    rake (13.2.1)
+    regexp_parser (2.9.2)
+    rexml (3.3.5)
+      strscan
+    rubocop (1.65.1)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.4, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.32.0)
+      parser (>= 3.3.1.0)
+    rubocop-performance (1.21.1)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    ruby-progressbar (1.13.0)
+    standard (1.34.0)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.60)
+      standard-custom (~> 1.0.0)
+      standard-performance (~> 1.3)
+    standard-custom (1.0.2)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.50)
+    standard-performance (1.4.0)
+      lint_roller (~> 1.1)
+      rubocop-performance (~> 1.21.0)
+    strscan (3.1.0)
+    thor (1.3.1)
+    unicode-display_width (2.5.0)
+
+PLATFORMS
+  aarch64-linux
+  arm-linux
+  arm64-darwin
+  x86-linux
+  x86_64-darwin
+  x86_64-linux
+
+DEPENDENCIES
+  appraisal
+  bundler (~> 2)
+  minitest (~> 5.16)
+  puma (~> 6)
+  rake (~> 13.0)
+  render_kit!
+  rubocop (~> 1.21)
+  standard (~> 1)
+
+BUNDLED WITH
+   2.5.13
