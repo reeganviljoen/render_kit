@@ -30,4 +30,11 @@ class RenderKit::ViewComponentCompatibilityTest < ActionController::TestCase
     assert_response :success
     assert_match(/I have been implicity rendered/, @response.body)
   end
+
+  def test_rendering_view_component_with_controller_render
+    get :implicit_controller_render
+    assert_response 200
+    assert_response :success
+    assert_match(/I have been implicity rendered by a controller/, @response.body)
+  end
 end

@@ -7,8 +7,8 @@ module RenderKit
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def register_renderable(path, renderable_klass)
-        RenderKit::RenderableRegistry.set_renderable(path, renderable_klass)
+      def register_renderable(path, renderable_klass, controller_render=false)
+        RenderKit::RenderableRegistry.set_renderable(path, renderable_klass, controller_render)
       end
     end
   end
