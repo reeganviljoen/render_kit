@@ -3,4 +3,7 @@ class TestController < ActionController::Base
 
   def component_implicit_render
   end
+
+  def implicit_controller_render
+  end
 end
