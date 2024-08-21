@@ -1,35 +1,85 @@
 # RenderKit
 
-TODO: Delete this and the text below, and describe your gem
+RenderKit is a small library to that extends rails [renderable classes](https://github.com/rails/rails/pull/36388) functionality by:
+  - Allowing renderables to be called by a string identifier, i.e. `render "my_renderable"
+  - Allowing renderables to be used in place of views with matching controller actions
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/render_kit`. To experiment with that code, run `bin/console` for an interactive prompt.
+This project is best used alongside a component library like [ViewComponent](https://viewcomponent.org/) or [Phlex](https://github.com/phlex-ruby/phlex-rails)
+
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'render_kit'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+And then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+    $ bundle install
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
+### Rendering like partials
+#### Defining a renderable
+To begin you first need a (Rails renderable class)[https://github.com/rails/rails/pull/36388]
 
-TODO: Write usage instructions here
+```ruby
+class MyRenderable
+  def render_in(_)
+    "Hello World"
+  end
+end
+```
+
+#### Registering a renderable
+You can register a renderable by calling `ActionView::Base.register_renderable` with a string identifier and the renderable class
+
+```ruby
+class MyRenderable
+  ActionView::Base.register_renderable("my_renderable", self)
+
+  def render_in(_)
+    "Hello World"
+  end
+end
+```
+
+```erb
+<%= render "my_renderable" %> # => "Hello World"
+```
+### Using renderables in place of views
+#### Defining a controller action
+```ruby
+class MyController < ApplicationController
+  def index
+    render MyRenderable.new
+  end
+end
+```
+
+#### Defining a renderable
+```ruby
+class MyRenderable
+  ActionView::Base.register_renderable("my_controller_index", self)
+
+  def render_in(_)
+    "Hello World"
+  end
+end
+
+```
+This will render the renderable in place of the view for the `index` action in `MyController`
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `bin/setup` to install dependencies.The tests use [Appraisal](https://github.com/thoughtbot/appraisal) to run multiple rails versions(7.0, 7.1, 7.2), i.e for rails 7.2 run `bundle exec appraisal rails-7.1 rake test`
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/render_kit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/render_kit/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on [GitHub](https://github.com/reeganviljoen/render_kit). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/reeganviljoen/render_kit/blob/main/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the RenderKit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/render_kit/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the RenderKit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/render_kit/blob/main/CODE_OF_CONDUCT.md) to ensure fait treatment of everyone, remember [MINASWAN](https://en.wiktionary.org/wiki/MINASWAN).
