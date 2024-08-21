@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Update Documentation
+
 ## [0.1.0] - 2024-08-20
 
 - Add controller implicit rendering

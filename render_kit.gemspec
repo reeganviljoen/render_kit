@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Reegan Viljoen"]
   spec.email = ["reeganviljoen@outlook.com"]
 
-  spec.summary = "A small library to allow claases to be rendered oike partials in Rails"
-  spec.description = "A small library to allow claases to be rendered oike partials in Rails"
+  spec.summary = "A small library to allow classes to be rendered like partials in Rails"
+  spec.description = "A small library to allow classes to be rendered like partials in Rails"
   spec.homepage = "https://github.com/reeganviljoen/render_kit"
   spec.required_ruby_version = ">= 3.0.0"
 
