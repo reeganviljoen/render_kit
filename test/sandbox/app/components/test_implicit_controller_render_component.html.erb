@@ -1,1 +1,5 @@
-<div> I have been implicity rendered by a controller </div>
+<% if @title.present? %>
+  <div><%= @title %></div>
+<% else %>
+  <div> I have been implicity rendered by a controller </div>
+<% end %>
