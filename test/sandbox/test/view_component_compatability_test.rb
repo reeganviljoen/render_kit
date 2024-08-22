@@ -31,10 +31,26 @@ class RenderKit::ViewComponentCompatibilityTest < ActionController::TestCase
     assert_match(/I have been implicity rendered/, @response.body)
   end
 
+  def test_rendering_view_component_args
+    get :component_args_implicit_render
+    assert_response 200
+    assert_response :success
+    assert_match(/I am using args/, @response.body)
+  end
+
   def test_rendering_view_component_with_controller_render
     get :implicit_controller_render
     assert_response 200
     assert_response :success
     assert_match(/I have been implicity rendered by a controller/, @response.body)
   end
+
+  def test_rendering_view_component_with_controller_render
+    get :implicit_controller_render, params: { title: "I have rendered controller params" }
+    assert_response 200
+    assert_response :success
+    assert_match(/I have rendered controller params/, @response.body)
+  end
+
+
 end
